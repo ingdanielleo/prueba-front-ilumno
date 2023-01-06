@@ -1,0 +1,50 @@
+<form [formGroup]="formRegister" (submit)="sendFormRegister()">
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input (input)="alphaNumberOnly($event)" (keypress)="alphaNumberOnly($event)" (paste)="alphaNumberOnly($event)" formControlName="name" type="text" class="form-control" id="name" placeholder="Pablo" />
+        <div *ngIf="this.formRegister.controls['name'].errors && this.formSubmitted" class="invalid-feedback d-block">
+            Ingrese un nombre.
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="family_name">Apellido </label>
+        <input (input)="alphaNumberOnly($event)" (keypress)="alphaNumberOnly($event)" (paste)="alphaNumberOnly($event)" formControlName="family_name" type="text" class="form-control" id="family_name" placeholder="Gomez" />
+        <div *ngIf="this.formRegister.controls['family_name'].errors && this.formSubmitted" class="invalid-feedback d-block">
+            Ingrese un apellido.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="email">Email </label>
+        <input formControlName="email" type="email" class="form-control" id="email" placeholder="usuario@email.com" />
+        <div *ngIf="this.formRegister.controls['email'].errors && this.formSubmitted" class="invalid-feedback d-block">
+            Ingrese un email y/o el formato es incorrecto.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="phone">Teléfono </label>
+        <input formControlName="phone" type="number" class="form-control" id="phone" placeholder="3211234567" />
+        <div *ngIf="this.formRegister.controls['phone'].errors && this.formSubmitted" class="invalid-feedback d-block">
+            Ingrese un numero de teléfono y/o el formato es incorrecto.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="program">Programa de interés </label>
+        <select formControlName="program" class="custom-select" id="program">
+            <option value="" selected>Seleccione...</option>
+            <option *ngFor="let program of this.listPrograms" [value]="program.id[0].value">{{program.title}}</option>
+          
+        </select>
+        <div *ngIf="this.formRegister.controls['program'].errors && this.formSubmitted" class="invalid-feedback d-block">
+            Seleccione un programa de interés.
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="comment">Comentario </label>
+        <textarea formControlName="comment" class="form-control" id="comment" placeholder="Este es mi mensaje..." rows="3"></textarea>
+        <div *ngIf="this.formRegister.controls['comment'].errors && this.formSubmitted" class="invalid-feedback d-block">
+           Dejanos un mensaje.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-primary">Registrar</button>
+</form>

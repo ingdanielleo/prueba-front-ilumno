@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-12"><h2>Detalle Noticia</h2></div>
+    </div>
+    <div *ngIf="this.noticeSelected" class="row justify-content-center">
+        <div class="col" >
+          <div class="card" >
+            <img src="https://random.imagecdn.app/500/200" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{noticeSelected.title}}</h5>
+              <p [innerHTML]="noticeSelected.descripcion[0].value"></p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-12">
+            <a class="btn btn-outline-danger" routerLink="/home">Regresar</a>
+        </div>
+      </div>
+</div>
+

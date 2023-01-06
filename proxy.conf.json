@@ -1,0 +1,7 @@
+
+{
+    "/api": {
+      "target": "https://dev-testfrontilumno.pantheonsite.io/api/",
+      "secure": false
+    }
+  }
